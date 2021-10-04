@@ -11,7 +11,7 @@ export default /*#__PURE__*/(() => {
 
   // Attach install function executed by Vue.use()
   installable.install = (app) => {
-    app.component('PackageTestVueTemporary', installable);
+    app.component('ZombieCharComponent', installable);
   };
   return installable;
 })();

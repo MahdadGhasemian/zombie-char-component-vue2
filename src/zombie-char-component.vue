@@ -32,7 +32,7 @@ import shirt5 from "./assets/zombieparts/shirt-5@2x.png";
 import shirt6 from "./assets/zombieparts/shirt-6@2x.png";
 
 export default /*#__PURE__*/ defineComponent({
-  name: "PackageTestVueTemporary", // vue component name
+  name: "ZombieCharComponent", // vue component name
   data() {
     return {
       counter: 5,
@@ -252,13 +252,13 @@ export default /*#__PURE__*/ defineComponent({
         v-show="!catMode"
         :style="clothesColor"
         class="right-thigh"
-        :src="rightLeg"
+        src="./assets/zombieparts/right-thigh-1@2x.png"
       />
 
       <img
         :style="headColor"
         class="left-forearm"
-        src="./assets/zombieparts/right-thigh-1@2x.png"
+        src="./assets/zombieparts/left-forearm-1@2x.png"
       />
       <img
         :style="headColor"
@@ -299,7 +299,11 @@ export default /*#__PURE__*/ defineComponent({
         src="./assets/zombieparts/left-upper-arm-1@2x.png"
       />
 
-      <img :style="headColor" class="left-forearm" :src="leftForearm" />
+      <img
+        :style="headColor"
+        class="left-forearm"
+        src="./assets/zombieparts/left-forearm-1@2x.png"
+      />
       <img
         :style="headColor"
         class="right-forearm"
