@@ -1,140 +1,62 @@
-<template>
-  <div class="relative main-box">
-    <div v-show="!isZombieLoaded" class="zombie-loading"></div>
-    <div v-show="!isZombieLoaded" class="box">
-      <img
-        v-show="!catMode"
-        :style="clothesColor"
-        class="left-feet absolute"
-        src="@/assets/zombieparts/left-feet-1@2x.png"
-      />
-      <img
-        v-show="!catMode"
-        :style="clothesColor"
-        class="right-feet absolute"
-        src="@/assets/zombieparts/right-feet-1@2x.png"
-      />
-
-      <img
-        v-show="!catMode"
-        :style="clothesColor"
-        class="left-leg absolute"
-        src="@/assets/zombieparts/left-leg-1@2x.png"
-      />
-      <img
-        v-show="!catMode"
-        :style="clothesColor"
-        class="right-leg absolute w-1/6"
-        src="@/assets/zombieparts/right-leg-1@2x.png"
-      />
-
-      <img
-        v-show="!catMode"
-        :style="clothesColor"
-        class="left-thigh"
-        src="@/assets/zombieparts/left-thigh-1@2x.png"
-      />
-      <img
-        v-show="!catMode"
-        :style="clothesColor"
-        class="right-thigh"
-        src="@/assets/zombieparts/right-thigh-1@2x.png"
-      />
-
-      <img
-        :style="headColor"
-        class="left-forearm"
-        src="@/assets/zombieparts/left-forearm-1@2x.png"
-      />
-      <img
-        :style="headColor"
-        class="right-forearm"
-        src="@/assets/zombieparts/right-forearm-1@2x.png"
-      />
-
-      <img
-        :style="headColor"
-        class="right-upper-arm"
-        src="@/assets/zombieparts/right-upper-arm-1@2x.png"
-      />
-
-      <img
-        :style="clothesColor"
-        class="torso"
-        src="@/assets/zombieparts/torso-1@2x.png"
-      />
-
-      <img
-        v-show="catMode"
-        :style="clothesColor"
-        class="cat-legs"
-        src="@/assets/zombieparts/catlegs.png"
-      />
-
-      <img
-        v-for="n in 6"
-        :key="'shirt-img-' + n"
-        :style="clothesColor"
-        :class="shirtClass(n)"
-        :src="shirtSrc(n)"
-      />
-
-      <img
-        :style="headColor"
-        class="left-upper-arm"
-        src="@/assets/zombieparts/left-upper-arm-1@2x.png"
-      />
-
-      <img
-        :style="headColor"
-        class="left-forearm"
-        src="@/assets/zombieparts/left-forearm-1@2x.png"
-      />
-      <img
-        :style="headColor"
-        class="right-forearm"
-        src="@/assets/zombieparts/right-forearm-1@2x.png"
-      />
-
-      <img
-        :style="headColor"
-        class="left-hand"
-        src="@/assets/zombieparts/hand1-1@2x.png"
-      />
-      <img
-        :style="headColor"
-        class="right-hand"
-        src="@/assets/zombieparts/hand-2-1@2x.png"
-      />
-
-      <img
-        v-for="n in 7"
-        :key="'head-img-' + n"
-        :style="headColor"
-        :class="headClass(n)"
-        :src="headSrc(n)"
-      />
-      <img
-        v-for="n in 11"
-        :key="'eye-img-' + n"
-        :style="eyeColor"
-        :class="eyeClass(n)"
-        :src="eyeSrc(n)"
-      />
-      <img class="mouth" src="@/assets/zombieparts/mouth-1@2x.png" />
-    </div>
-  </div>
-</template>
-
 <script>
+import { defineComponent } from "vue";
 import "babel-polyfill";
 import sha3 from "js-sha3";
 import bigInt from "big-integer";
-import imagesLoaded from "vue-images-loaded";
-export default {
-  name: "ZombieChar",
-  directives: {
-    imagesLoaded,
+
+import head1 from "./assets/zombieparts/head-1@2x.png";
+import head2 from "./assets/zombieparts/head-2@2x.png";
+import head3 from "./assets/zombieparts/head-3@2x.png";
+import head4 from "./assets/zombieparts/head-4@2x.png";
+import head5 from "./assets/zombieparts/head-5@2x.png";
+import head6 from "./assets/zombieparts/head-6@2x.png";
+import head7 from "./assets/zombieparts/head-7@2x.png";
+
+import eyes1 from "./assets/zombieparts/eyes-1@2x.png";
+import eyes2 from "./assets/zombieparts/eyes-2@2x.png";
+import eyes3 from "./assets/zombieparts/eyes-3@2x.png";
+import eyes4 from "./assets/zombieparts/eyes-4@2x.png";
+import eyes5 from "./assets/zombieparts/eyes-5@2x.png";
+import eyes6 from "./assets/zombieparts/eyes-6@2x.png";
+import eyes7 from "./assets/zombieparts/eyes-7@2x.png";
+import eyes8 from "./assets/zombieparts/eyes-8@2x.png";
+import eyes9 from "./assets/zombieparts/eyes-9@2x.png";
+import eyes10 from "./assets/zombieparts/eyes-10@2x.png";
+import eyes11 from "./assets/zombieparts/eyes-11@2x.png";
+
+import shirt1 from "./assets/zombieparts/shirt-1@2x.png";
+import shirt2 from "./assets/zombieparts/shirt-2@2x.png";
+import shirt3 from "./assets/zombieparts/shirt-3@2x.png";
+import shirt4 from "./assets/zombieparts/shirt-4@2x.png";
+import shirt5 from "./assets/zombieparts/shirt-5@2x.png";
+import shirt6 from "./assets/zombieparts/shirt-6@2x.png";
+
+export default /*#__PURE__*/ defineComponent({
+  name: "PackageTestVueTemporary", // vue component name
+  data() {
+    return {
+      counter: 5,
+      initCounter: 5,
+      message: {
+        action: null,
+        amount: null,
+      },
+      headImages: [head1, head2, head3, head4, head5, head6, head7],
+      eyeImages: [
+        eyes1,
+        eyes2,
+        eyes3,
+        eyes4,
+        eyes5,
+        eyes6,
+        eyes7,
+        eyes8,
+        eyes9,
+        eyes10,
+        eyes11,
+      ],
+      shirtImages: [shirt1, shirt2, shirt3, shirt4, shirt5, shirt6],
+    };
   },
   props: {
     isZombieLoaded: {
@@ -260,13 +182,13 @@ export default {
   },
   methods: {
     headSrc(i) {
-      return require("@/assets/zombieparts/head-" + i + "@2x.png");
+      return this.headImages[i + 1];
     },
     eyeSrc(i) {
-      return require("@/assets/zombieparts/eyes-" + i + "@2x.png");
+      return this.eyeImages[i + 1];
     },
     shirtSrc(i) {
-      return require("@/assets/zombieparts/shirt-" + i + "@2x.png");
+      return this.shirtImages[i + 1];
     },
     headClass(i) {
       return i === this.currentHeadChoice
@@ -287,12 +209,136 @@ export default {
       return `filter: hue-rotate(${deg}deg);`;
     },
   },
-};
+});
 </script>
+
+<template>
+  <div class="relative main-box">
+    <div v-show="!isZombieLoaded" class="zombie-loading"></div>
+    <div v-show="!isZombieLoaded" class="box">
+      <img
+        v-show="!catMode"
+        :style="clothesColor"
+        class="left-feet absolute"
+        src="./assets/zombieparts/left-feet-1-2x.png"
+      />
+      <img
+        v-show="!catMode"
+        :style="clothesColor"
+        class="right-feet absolute"
+        src="./assets/zombieparts/right-feet-1@2x.png"
+      />
+
+      <img
+        v-show="!catMode"
+        :style="clothesColor"
+        class="left-leg absolute"
+        src="./assets/zombieparts/left-leg-1@2x.png"
+      />
+      <img
+        v-show="!catMode"
+        :style="clothesColor"
+        class="right-leg absolute w-1/6"
+        src="./assets/zombieparts/right-leg-1@2x.png"
+      />
+
+      <img
+        v-show="!catMode"
+        :style="clothesColor"
+        class="left-thigh"
+        src="./assets/zombieparts/left-thigh-1@2x.png"
+      />
+      <img
+        v-show="!catMode"
+        :style="clothesColor"
+        class="right-thigh"
+        :src="rightLeg"
+      />
+
+      <img
+        :style="headColor"
+        class="left-forearm"
+        src="./assets/zombieparts/right-thigh-1@2x.png"
+      />
+      <img
+        :style="headColor"
+        class="right-forearm"
+        src="./assets/zombieparts/right-forearm-1@2x.png"
+      />
+
+      <img
+        :style="headColor"
+        class="right-upper-arm"
+        src="./assets/zombieparts/right-upper-arm-1@2x.png"
+      />
+
+      <img
+        :style="clothesColor"
+        class="torso"
+        src="./assets/zombieparts/torso-1@2x.png"
+      />
+
+      <img
+        v-show="catMode"
+        :style="clothesColor"
+        class="cat-legs"
+        src="./assets/zombieparts/catlegs.png"
+      />
+
+      <img
+        v-for="n in 6"
+        :key="'shirt-img-' + n"
+        :style="clothesColor"
+        :class="shirtClass(n)"
+        :src="shirtSrc(n)"
+      />
+
+      <img
+        :style="headColor"
+        class="left-upper-arm"
+        src="./assets/zombieparts/left-upper-arm-1@2x.png"
+      />
+
+      <img :style="headColor" class="left-forearm" :src="leftForearm" />
+      <img
+        :style="headColor"
+        class="right-forearm"
+        src="./assets/zombieparts/right-forearm-1@2x.png"
+      />
+
+      <img
+        :style="headColor"
+        class="left-hand"
+        src="./assets/zombieparts/hand1-1@2x.png"
+      />
+      <img
+        :style="headColor"
+        class="right-hand"
+        src="./assets/zombieparts/hand-2-1@2x.png"
+      />
+
+      <img
+        v-for="n in 7"
+        :key="'head-img-' + n"
+        :style="headColor"
+        :class="headClass(n)"
+        :src="headSrc(n)"
+      />
+      <img
+        v-for="n in 11"
+        :key="'eye-img-' + n"
+        :style="eyeColor"
+        :class="eyeClass(n)"
+        :src="eyeSrc(n)"
+      />
+      <img class="mouth" src="./assets/zombieparts/mouth-1@2x.png" />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .zombie-loading {
-  background: url("../assets/zombiebg/zombierun.png") left center;
+  background: url("./assets/zombiebg/zombierun.png") left center;
   width: 12rem;
   height: 18rem;
   animation: play 0.7s steps(24) infinite;
