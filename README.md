@@ -89,7 +89,7 @@ aabbccddeeff<br />
 ```html
 <template>
   <div>
-    <zombie-char-component :isZombieLoaded="false" />
+    <zombie-char :isZombieLoaded="false" />
   </div>
 </template>
 ```
@@ -101,7 +101,7 @@ aabbccddeeff<br />
 ```html
 <template>
   <div>
-    <zombie-char-component
+    <zombie-char
       :isZombieLoaded="true"
       zombieName="Zombie1"
       :autoGenerate="false"
@@ -119,7 +119,7 @@ aabbccddeeff<br />
 ```html
 <template>
   <div>
-    <zombie-char-component
+    <zombie-char
       :isZombieLoaded="true"
       optionalDna="020603010101"
       :autoGenerate="true"
@@ -135,7 +135,7 @@ aabbccddeeff<br />
 ```html
 <template>
   <div>
-    <zombie-char-component
+    <zombie-char
       :isZombieLoaded="true"
       optionalDna="020603010101"
       :autoGenerate="true"
