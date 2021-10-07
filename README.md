@@ -149,6 +149,10 @@ aabbccddeeff<br />
 
 ### Change log
 
+## 1.0.5 (2021-10-07)
+
+- fixed readme
+
 ## 1.0.4 (2021-10-07)
 
 - fixed some bugs and added examples
