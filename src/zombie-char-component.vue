@@ -35,12 +35,6 @@ export default /*#__PURE__*/ defineComponent({
   name: "ZombieCharComponent", // vue component name
   data() {
     return {
-      counter: 5,
-      initCounter: 5,
-      message: {
-        action: null,
-        amount: null,
-      },
       headImages: [head1, head2, head3, head4, head5, head6, head7],
       eyeImages: [
         eyes1,
@@ -70,14 +64,6 @@ export default /*#__PURE__*/ defineComponent({
     zombieName: {
       default: "",
       type: String,
-    },
-    zombieDescription: {
-      default: "",
-      type: String,
-    },
-    hideNameField: {
-      default: true,
-      type: Boolean,
     },
     skinColorChoice: {
       default: 1,
@@ -171,24 +157,16 @@ export default /*#__PURE__*/ defineComponent({
       const shirtVisible = `shirt-visible-${this.currentShirtChoice}`;
       return `${headVisible} ${eyeVisible} ${shirtVisible}`;
     },
-    hideNameFieldClass() {
-      return !!this.hideNameField || !this.isZombieLoaded
-        ? "hide"
-        : "zombie-card card bg-shaded";
-    },
-    currentZombieDescription() {
-      return this.zombieDescription;
-    },
   },
   methods: {
     headSrc(i) {
-      return this.headImages[i + 1];
+      return this.headImages[i - 1];
     },
     eyeSrc(i) {
-      return this.eyeImages[i + 1];
+      return this.eyeImages[i - 1];
     },
     shirtSrc(i) {
-      return this.shirtImages[i + 1];
+      return this.shirtImages[i - 1];
     },
     headClass(i) {
       return i === this.currentHeadChoice
@@ -215,7 +193,7 @@ export default /*#__PURE__*/ defineComponent({
 <template>
   <div class="relative main-box">
     <div v-show="!isZombieLoaded" class="zombie-loading"></div>
-    <div v-show="!isZombieLoaded" class="box">
+    <div v-show="isZombieLoaded" class="box">
       <img
         v-show="!catMode"
         :style="clothesColor"
@@ -351,6 +329,22 @@ export default /*#__PURE__*/ defineComponent({
   100% {
     background-position: -4608px;
   }
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .main-box {
