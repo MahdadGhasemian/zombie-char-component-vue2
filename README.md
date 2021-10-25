@@ -17,7 +17,7 @@ Refer to [lesson 6](https://cryptoZombies.io/course) for more detailed informati
 ### npm
 
 ```bash
-npm i zombie-char-component --save
+npm i zombie-char-component-vue2 --save
 ```
 
 ### Usage
@@ -26,7 +26,7 @@ main.js
 
 ```javascript
 //...
-import ZombieChar from "zombie-char-component";
+import ZombieChar from "zombie-char-component-vue2";
 Vue.component("zombie-char", ZombieChar);
 //...
 ```
@@ -41,7 +41,7 @@ Or in component
 </template>
 
 <script>
-  import ZombieChar from "zombie-char-component";
+  import ZombieChar from "zombie-char-component-vue2";
   export default {
     data() {
       return {
@@ -53,6 +53,41 @@ Or in component
     },
   };
 </script>
+```
+
+## Nuxt [nuxtjs](https://nuxtjs.org/)
+
+### npm
+
+```bash
+npm i zombie-char-component-vue2 --save
+```
+
+### Config as plugin
+
+/plugins/zombie-char-component-vue2.js
+
+```javascript
+import Vue from "vue";
+import ZombieChar from "zombie-char-component-vue2";
+
+Vue.component("ZombieChar", ZombieChar);
+```
+
+/nuxt.config.js
+
+```javascript
+plugins: ['~/plugins/zombie-char-component-vue2.js'],
+```
+
+### Usage
+
+```html
+<template>
+  <div>
+    <zombie-char />
+  </div>
+</template>
 ```
 
 ### Description
