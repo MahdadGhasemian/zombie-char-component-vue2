@@ -90,9 +90,9 @@ plugins: ['~/plugins/zombie-char-component-vue2.js'],
 </template>
 ```
 
-### Description
+## Description
 
-## Props
+### Props
 
 | Name               | Type             | Default | Description                                            |
 | ------------------ | ---------------- | ------- | ------------------------------------------------------ |
@@ -110,7 +110,7 @@ plugins: ['~/plugins/zombie-char-component-vue2.js'],
 
 \* if the autoGenerate equal to false
 
-# optionalDna
+### optionalDna
 
 012345678901<br />
 aabbccddeeff<br />
@@ -122,9 +122,9 @@ aabbccddeeff<br />
 - ee = eyeColor
 - ff = clothesColor
 
-### Examples
+## Examples
 
-# Example1
+### Example1
 
 ```html
 <template>
@@ -136,7 +136,7 @@ aabbccddeeff<br />
 
 ![Example1](https://user-images.githubusercontent.com/48379992/136317466-0c743a60-f090-4504-b479-069b0a2a2941.png)
 
-# Example2
+### Example2
 
 ```html
 <template>
@@ -154,7 +154,7 @@ aabbccddeeff<br />
 
 ![Example2](https://user-images.githubusercontent.com/48379992/136316964-f0b77640-ee86-4527-af43-3c3ab1df3997.png)
 
-# Example3
+### Example3
 
 ```html
 <template>
@@ -170,7 +170,7 @@ aabbccddeeff<br />
 
 ![Example3](https://user-images.githubusercontent.com/48379992/136317256-ceacfd95-2dce-425e-a4b2-4726993d3d12.png)
 
-# Example4
+### Example4
 
 ```html
 <template>
@@ -187,17 +187,21 @@ aabbccddeeff<br />
 
 ![Example4](https://user-images.githubusercontent.com/48379992/136317323-d2420122-2455-49a9-a6ef-fe3d38aacfae.png)
 
-### Change log
+## Change log
 
-## 1.0.6 (2021-10-25)
+### 1.0.7 (2021-10-25)
+
+- added nuxt example
+
+### 1.0.6 (2021-10-25)
 
 - added vue2 repo
 
-## 1.0.5 (2021-10-07)
+### 1.0.5 (2021-10-07)
 
 - fixed readme
 
-## 1.0.4 (2021-10-07)
+### 1.0.4 (2021-10-07)
 
 - fixed some bugs and added examples
 
