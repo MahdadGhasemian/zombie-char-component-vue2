@@ -1,6 +1,6 @@
 
 // Import vue component
-import component from '@/zombie-char-component.vue';
+import component from '@/zombie-char-component-vue2.vue';
 
 // Default export is installable instance of component.
 // IIFE injects install function into component, allowing component
@@ -10,8 +10,8 @@ export default /*#__PURE__*/(() => {
   const installable = component;
 
   // Attach install function executed by Vue.use()
-  installable.install = (app) => {
-    app.component('ZombieCharComponent', installable);
+  installable.install = (Vue) => {
+    Vue.component('ZombieCharComponentVue2', installable);
   };
   return installable;
 })();

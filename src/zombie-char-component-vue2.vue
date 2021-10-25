@@ -31,8 +31,8 @@ import shirt4 from "./assets/zombieparts/shirt-4@2x.png";
 import shirt5 from "./assets/zombieparts/shirt-5@2x.png";
 import shirt6 from "./assets/zombieparts/shirt-6@2x.png";
 
-export default /*#__PURE__*/ defineComponent({
-  name: "ZombieCharComponent", // vue component name
+export default /*#__PURE__*/ {
+  name: "ZombieCharComponentVue2", // vue component name
   data() {
     return {
       headImages: [head1, head2, head3, head4, head5, head6, head7],
@@ -187,7 +187,7 @@ export default /*#__PURE__*/ defineComponent({
       return `filter: hue-rotate(${deg}deg);`;
     },
   },
-});
+};
 </script>
 
 <template>
